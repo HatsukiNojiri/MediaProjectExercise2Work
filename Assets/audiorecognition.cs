@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
 using System.Linq;
 
@@ -8,6 +9,7 @@ using System.Linq;
 
 public class audiorecognition : MonoBehaviour
 {
+    public Text Inputtext;
     KeywordRecognizer keywordRecognizer;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
     // Start is called before the first frame update
@@ -25,6 +27,7 @@ public class audiorecognition : MonoBehaviour
 
         keywordRecognizer.Start();
         Debug.Log("音声認識開始");
+        Inputtext.text = "";
     }
 
     // Update is called once per frame
@@ -47,15 +50,19 @@ public class audiorecognition : MonoBehaviour
         {
             case "うえ":
                 Debug.Log("うえ");
+                Inputtext.text += "上";
                 break;
             case "した":
                 Debug.Log("した");
+                Inputtext.text += "下";
                 break;
             case "ひだり":
                 Debug.Log("ひだり");
+                Inputtext.text += "左";
                 break;
             case "みぎ":
                 Debug.Log("みぎ");
+                Inputtext.text += "右";
                 break;
         }
     }
