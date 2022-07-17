@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
 using System.Linq;
 
-public class CreaterController : MonoBehaviour
+public class GetterController : MonoBehaviour
 {
-    public GameObject FallObj;
     KeywordRecognizer keywordRecognizer;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
 
@@ -18,19 +18,17 @@ public class CreaterController : MonoBehaviour
         keywords.Add("みぎ", () => { });
         keywords.Add("ひだり", () => { });
 
-        keywords.Add("おちろ", () => { });
-
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += KeywordRecoggnizer_OnPhaseRecognized;
 
         keywordRecognizer.Start();
-        Debug.Log("音声認識開始");
+        Debug.Log("音声認識開始2");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //単語が読み上げられた場合のイベント処理
@@ -43,30 +41,24 @@ public class CreaterController : MonoBehaviour
         {
             case "まえ":
                 Debug.Log("前");
-                pos.z -= 1.0f;
+                pos.z -= 2.0f;
                 this.gameObject.transform.position = pos;
                 break;
             case "うしろ":
                 Debug.Log("後");
-                pos.z += 1.0f;
+                pos.z += 2.0f;
                 this.gameObject.transform.position = pos;
                 break;
             case "みぎ":
                 Debug.Log("右");
-                pos.x += 1.0f;
+                pos.x += 2.0f;
                 this.gameObject.transform.position = pos;
                 break;
             case "ひだり":
                 Debug.Log("左");
-                pos.x -= 1.0f;
+                pos.x -= 2.0f;
                 this.gameObject.transform.position = pos;
-                break;
-            case "おちろ":
-                Debug.Log("落ちろ");
-                pos.y -= 1.0f;
-                Instantiate(FallObj, pos, Quaternion.identity);
                 break;
         }
     }
-
 }

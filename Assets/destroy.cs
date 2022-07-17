@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class destroy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //自身の削除
-        Destroy(gameObject, 10f);
+        Destroy(collision.gameObject);
     }
 }
