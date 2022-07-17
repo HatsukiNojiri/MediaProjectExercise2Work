@@ -41,22 +41,22 @@ public class GetterController : MonoBehaviour
         {
             case "まえ":
                 Debug.Log("前");
-                pos.z -= 2.0f;
+                pos.z -= 1.0f;
                 this.gameObject.transform.position = pos;
                 break;
             case "うしろ":
                 Debug.Log("後");
-                pos.z += 2.0f;
+                pos.z += 1.0f;
                 this.gameObject.transform.position = pos;
                 break;
             case "みぎ":
                 Debug.Log("右");
-                pos.x += 2.0f;
+                pos.x += 1.0f;
                 this.gameObject.transform.position = pos;
                 break;
             case "ひだり":
                 Debug.Log("左");
-                pos.x -= 2.0f;
+                pos.x -= 1.0f;
                 this.gameObject.transform.position = pos;
                 break;
         }

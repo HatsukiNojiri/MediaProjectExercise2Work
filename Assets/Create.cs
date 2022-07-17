@@ -7,6 +7,9 @@ using System.Linq;
 public class Create : MonoBehaviour
 {
     public GameObject PrefabObj;
+    public GameObject bowObj;
+    public GameObject jama1;
+    public GameObject jama2;
     public UnityEngine.UI.Text scoreText;
     private bool isCreate = false;
     KeywordRecognizer keywordRecognizer;
@@ -18,6 +21,9 @@ public class Create : MonoBehaviour
         keywords.Add("すたあと", () => { });
         keywords.Add("すとっぷ", () => { });
         keywords.Add("りせっと", () => { });
+        keywords.Add("かんたん", () => { });
+        keywords.Add("ふつう", () => { });
+        keywords.Add("むずかしい", () => { });
 
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += KeywordRecoggnizer_OnPhaseRecognized;
@@ -64,6 +70,24 @@ public class Create : MonoBehaviour
                 Debug.Log("リセット");
                 isCreate = false;
                 scoreText.text = "0";
+                break;
+            case "かんたん":
+                Debug.Log("簡単");
+                bowObj.SetActive(false);
+                jama1.SetActive(false);
+                jama2.SetActive(false);
+                break;
+            case "ふつう":
+                Debug.Log("普通");
+                bowObj.SetActive(false);
+                jama1.SetActive(true);
+                jama2.SetActive(false);
+                break;
+            case "むずかしい":
+                Debug.Log("難しい");
+                bowObj.SetActive(true);
+                jama1.SetActive(true);
+                jama2.SetActive(true);
                 break;
         }
     }
