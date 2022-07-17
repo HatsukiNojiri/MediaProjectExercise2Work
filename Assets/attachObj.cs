@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrefabTest : MonoBehaviour
+public class attachObj : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
-        //Cubeプレハブをゲームオブジェクト型で取得
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
